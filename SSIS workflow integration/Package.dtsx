@@ -12,8 +12,8 @@
   DTS:MaxErrorCount="5"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{623D8B20-7E9E-4C52-A651-20F3AB84257A}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{7725DE9D-4897-454E-84DB-117D7C88FAC9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -11472,19 +11472,19 @@
               startId="Package\Data Flow Task\Orders.Outputs[Flat File Source Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Merge Join Output1]"
-              endId="Package\Data Flow Task\Sort Orders-Order ID.Inputs[Sort Input]"
-              name="Merge Join Output"
-              startId="Package\Data Flow Task\Join Orders with Cost.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Merge Join Output2]"
               endId="Package\Data Flow Task\Sort Orders-Region 2.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\Data Flow Task\Join Orders with Users.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Merge Join Output]"
+              refId="Package\Data Flow Task.Paths[Merge Join Output2]"
               endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
               name="Merge Join Output"
               startId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task\Sort Orders-Order ID.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\Join Orders with Cost.Outputs[Merge Join Output]" />
             <path
               refId="Package\Data Flow Task.Paths[North]"
               endId="Package\Data Flow Task\Excel North.Inputs[Excel Destination Input]"
@@ -19396,9 +19396,9 @@
               startId="Package\SSIS WORKFLOW\Conditional Split.Outputs[Conditional Split Default Output]" />
             <path
               refId="Package\SSIS WORKFLOW.Paths[Merge Join Output2]"
-              endId="Package\SSIS WORKFLOW\Sort Orders and Users.Inputs[Sort Input]"
+              endId="Package\SSIS WORKFLOW\Sort OU and Cost.Inputs[Sort Input]"
               name="Merge Join Output"
-              startId="Package\SSIS WORKFLOW\Merge Orders and Users.Outputs[Merge Join Output]" />
+              startId="Package\SSIS WORKFLOW\Merge OU and Cost.Outputs[Merge Join Output]" />
             <path
               refId="Package\SSIS WORKFLOW.Paths[Merge Join Output1]"
               endId="Package\SSIS WORKFLOW\Conditional Split.Inputs[Conditional Split Input]"
@@ -19406,9 +19406,9 @@
               startId="Package\SSIS WORKFLOW\Merge OUC and Returns.Outputs[Merge Join Output]" />
             <path
               refId="Package\SSIS WORKFLOW.Paths[Merge Join Output]"
-              endId="Package\SSIS WORKFLOW\Sort OU and Cost.Inputs[Sort Input]"
+              endId="Package\SSIS WORKFLOW\Sort Orders and Users.Inputs[Sort Input]"
               name="Merge Join Output"
-              startId="Package\SSIS WORKFLOW\Merge OU and Cost.Outputs[Merge Join Output]" />
+              startId="Package\SSIS WORKFLOW\Merge Orders and Users.Outputs[Merge Join Output]" />
             <path
               refId="Package\SSIS WORKFLOW.Paths[Sort Output]"
               endId="Package\SSIS WORKFLOW\Merge Orders and Users.Inputs[Merge Join Left Input]"
@@ -19482,7 +19482,7 @@
         <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task"
-          TopLeft="791.666666666667,331.333333333333" />
+          TopLeft="450.666666666667,364.333333333333" />
         <NodeLayout
           Size="161,42"
           Id="Package\Delet and Create Each Region Files\Delete Excel Files"
@@ -19564,30 +19564,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="533.5,253">
+          TopLeft="529.833333333333,253">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="333.666666666667,78.3333333333333"
+              EndConnector="0,111.333333333333"
               Start="0,0"
-              End="333.666666666667,70.8333333333333">
+              End="0,103.833333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.1666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.1666666666667"
-                    Point2="0,39.1666666666667"
-                    Point3="4,39.1666666666667" />
-                  <mssgle:LineSegment
-                    End="329.666666666667,39.1666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="329.666666666667,39.1666666666667"
-                    Point2="333.666666666667,39.1666666666667"
-                    Point3="333.666666666667,43.1666666666667" />
-                  <mssgle:LineSegment
-                    End="333.666666666667,70.8333333333333" />
+                    End="0,103.833333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -19931,7 +19919,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output1]"
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
           TopLeft="216.5,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -19953,7 +19941,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output2]"
+          Id="Package\Data Flow Task.Paths[Merge Join Output1]"
           TopLeft="464.5,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -20165,7 +20153,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          Id="Package\Data Flow Task.Paths[Merge Join Output2]"
           TopLeft="457.5,761.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -20316,8 +20304,8 @@
             <s:String>Package\Data Flow Task.Paths[Sort Output4]</s:String>
             <s:String>Package\Data Flow Task.Paths[Sort Output1]</s:String>
             <s:String>Package\Data Flow Task.Paths[North]</s:String>
+            <s:String>Package\Data Flow Task.Paths[Merge Join Output]</s:String>
             <s:String>Package\Data Flow Task.Paths[Merge Join Output1]</s:String>
-            <s:String>Package\Data Flow Task.Paths[Merge Join Output2]</s:String>
             <s:String>Package\Data Flow Task.Paths[Flat File Source Output]</s:String>
             <s:String>Package\Data Flow Task.Paths[East]</s:String>
             <s:String>Package\Data Flow Task\Sort Region_Cost-Region</s:String>
@@ -20326,7 +20314,7 @@
             <s:String>Package\Data Flow Task\Merge Join</s:String>
             <s:String>Package\Data Flow Task.Paths[Sort Output3]</s:String>
             <s:String>Package\Data Flow Task.Paths[Sort Output]</s:String>
-            <s:String>Package\Data Flow Task.Paths[Merge Join Output]</s:String>
+            <s:String>Package\Data Flow Task.Paths[Merge Join Output2]</s:String>
             <s:String>Package\Data Flow Task\Union All</s:String>
             <s:String>Package\Data Flow Task.Paths[Flat File Source Output2]</s:String>
             <s:String>Package\Data Flow Task.Paths[Flat File Source Output3]</s:String>
@@ -20712,7 +20700,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SSIS WORKFLOW.Paths[Merge Join Output2]"
+          Id="Package\SSIS WORKFLOW.Paths[Merge Join Output]"
           TopLeft="372.464285714286,444.285714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -20780,7 +20768,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SSIS WORKFLOW.Paths[Merge Join Output]"
+          Id="Package\SSIS WORKFLOW.Paths[Merge Join Output2]"
           TopLeft="500.589285714286,590.285714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
